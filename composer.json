@@ -1,0 +1,22 @@
+{
+    "name": "wilfr/bienesraices",
+    "description": "Creando un proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Wilfr\\BienesRaicesMVC\\": "src/",
+            "Model\\" : "./models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wilfredery",
+            "email": "wilfredery30@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^3.11"
+    }
+}
