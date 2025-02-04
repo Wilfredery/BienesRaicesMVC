@@ -150,10 +150,6 @@ protected static $tabla = '';
       if($existeArchivo) {
         unlink(CARPETA_IMAGENES . $this->imagen);
       }
-    // $query = "SELECT imagen FROM propiedades WHERE idpropiedades = $id";
-    // $resultimagen = mysqli_query($db, $query);
-    // $propiedad = mysqli_fetch_assoc($resultimagen);
-    // unlink('../imagenes/'. $propiedad['imagen']);
   }
 
 

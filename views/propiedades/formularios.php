@@ -37,19 +37,19 @@
         <fieldset>
             <legend>Vendedor</legend>
             <label for="Vendedor">Vendedor</label>
-            <select name="propiedad[id_vendedores]" id="vendedor" >
+            <select name="propiedad[id]" id="vendedor" >
                 <option selected value="">--Seleccionar--</option>
                 <!-- <option value="1">Juan</option>
                 <option value="2">Pablito</option> -->
 
                 <?php foreach ( $vendedores as $vendedor ) { ?>
                     <option 
-                    <?php echo $propiedad->id_vendedores == $vendedor->id ? 'selected' : ''; ?>
+                    <?php echo $propiedad->id == $vendedor->id ? 'selected' : ''; ?>
                     value="<?php echo sanitizar($vendedor->id)?>">
                     <?php echo sanitizar($vendedor->nombre) . " " . sanitizar($vendedor->apellido);?> 
                     </option>
                 
                 <?php } ?>
-
+                    
             </select>
         </fieldset>
