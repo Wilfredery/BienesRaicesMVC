@@ -36,13 +36,13 @@
                 <td>$<?php echo $propiedad->precio; ?> </td>
                 <td>
 
-                    <form method="POST" class="w-100">
+                    <form method="POST" class="w-100" action="/propiedades/eliminar">
                         <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">
                         <input type="hidden" name="tipo" value="propiedad">
                         <input class="boton-rojo-block" value="Eliminar" type="submit" >
                     </form>
                     
-                    <a class="boton-amarillo-block" href="admin/propiedades/actualizar.php?id=<?php echo $propiedad->id; ?>">Actualizar</a>
+                    <a class="boton-amarillo-block" href="/propiedades/actualizar?id=<?php echo $propiedad->id; ?>">Actualizar</a>
                 </td>
             </tr>
 
@@ -50,5 +50,41 @@
         </tbody>
     </table>
 
-    <a href="/admin/vendedores/crear.php" class="boton boton-verde">Nuevo/a vendedor</a>
+    <a href="/vendedores/crear" class="boton boton-verde">Nuevo/a vendedor</a>
+
+    <h2>Vendedores/as</h2>
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody> <!--Mostrar los resultados-->
+
+            <?php foreach( $vendedores as $vendedor): ?>
+
+            <tr>
+                <td> <?php echo $vendedor->id; ?> </td>
+                <td> <?php echo $vendedor->nombre . " " . $vendedor->apellido; ?> </td>
+                <td> <?php echo $vendedor->telefono; ?> </td>
+                <td>
+
+                    <form method="POST" class="w-100" action="/vendedores/eliminar">
+                        <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
+                        <input type="hidden" name="tipo" value="vendedor">
+                        <input class="boton-rojo-block" value="Eliminar" type="submit" >
+                    </form>
+                    
+                    <a class="boton-amarillo-block" href="/vendedores/actualizar?id=<?php echo $vendedor->id; ?>">Actualizar</a>
+                </td>
+            </tr>
+
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
 </main>

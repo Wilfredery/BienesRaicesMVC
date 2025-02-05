@@ -21,23 +21,24 @@ class Vendedor extends ActiveRecord {
       }
 
       public function validar() {
-        if(!$this->nombre) {
-          self::$errores[] = 'Debes agregar un nombre.';
+        if (trim($this->nombre) === '') {
+            self::$errores[] = 'Debes agregar un nombre.';
         }
-
-        if(!$this->apellido) {
-          self::$errores[] = 'Debes agregar un apellido.';
+    
+        if (trim($this->apellido) === '') {
+            self::$errores[] = 'Debes agregar un apellido.';
         }
-        if(!$this->telefono) {
-          self::$errores[] = 'Debes agregar un telefono.';
+    
+        if (trim($this->telefono) === '') {
+            self::$errores[] = 'Debes agregar un telefono.';
         }
-
-        if(!preg_match('/[0-9]{10}/',  $this->telefono) or strlen($this->telefono) > 10) {
-          self::$errores[] = "Formato del telefono no es válido.";
+    
+        if (!preg_match('/^[0-9]{10}$/', $this->telefono)) {
+            self::$errores[] = "Formato del telefono no es válido.";
         }
-
+    
         return self::$errores;
-      }
+    }
     
 }
 

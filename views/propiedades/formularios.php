@@ -37,7 +37,7 @@
         <fieldset>
             <legend>Vendedor</legend>
             <label for="Vendedor">Vendedor</label>
-            <select name="propiedad[id]" id="vendedor" >
+            <select name="propiedad[idvendedores]" id="vendedor" >
                 <option selected value="">--Seleccionar--</option>
                 <!-- <option value="1">Juan</option>
                 <option value="2">Pablito</option> -->

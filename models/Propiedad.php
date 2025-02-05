@@ -5,7 +5,7 @@ class Propiedad extends ActiveRecord {
 
   protected static $tabla = 'propiedades'; 
   
-  protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'Descripción', 'habitaciones', 'bathroom', 'estacionamiento', 'creado', 'vendedores_idvendedores'];
+  protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'Descripción', 'habitaciones', 'bathroom', 'estacionamiento', 'creado', 'idvendedores'];
 
   public $id;
   public $titulo;
@@ -16,7 +16,7 @@ class Propiedad extends ActiveRecord {
   public $bathroom;
   public $estacionamiento;
   public $creado;
-  public $vendedores_idvendedores;
+  public $idvendedores;
 
   public function __construct($args = []) {
     $this->id = $args['id'] ?? null;
@@ -28,7 +28,7 @@ class Propiedad extends ActiveRecord {
     $this->bathroom = $args['bathroom'] ?? '';
     $this->estacionamiento = $args['estacionamiento'] ?? '';
     $this->creado = date('Y/m/d');
-    $this->vendedores_idvendedores = $args['vendedores_idvendedores'] ?? '';
+    $this->idvendedores = $args['idvendedores'] ?? '';
     
   }
 
@@ -57,7 +57,7 @@ class Propiedad extends ActiveRecord {
       self::$errores[] = 'Debes agregar la cantidad de estacionamientos';
     }
 
-    if(!$this->vendedores_idvendedores) {
+    if(!$this->idvendedores) {
       self::$errores[] = 'Debes agregar al vendedor';
     }
 
