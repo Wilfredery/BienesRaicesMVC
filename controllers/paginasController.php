@@ -45,10 +45,15 @@ class PaginasController {
     public static function blog(Router $router) {
         $router->renderView('paginas/blog', []);
     }
-    public static function contacto(Router $router) {
-        
-    }
+
     public static function entrada(Router $router) {
         $router->renderView('paginas/entrada', []);
+    }
+
+    public static function contacto(Router $router) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+        }
+        $router->renderView('paginas/contacto', []);
     }
 }
