@@ -7,6 +7,13 @@ function eventListener() {
     const mobileMenu = document.querySelector('.mobile-menu');
 
     mobileMenu.addEventListener('click', navResponsive);
+
+    //Muestra campos condicionales
+    const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
+
+    metodoContacto.forEach(input => input.addEventListener('click', mostrarMetodosContacto));
+
+    //metodoContacto.addEventListener('click', mostrarMetodosContacto )
 }
 
 function navResponsive() {
@@ -46,4 +53,34 @@ function darkMode() {
                 localStorage.setItem('color-mode', 'false');
         }
     });
+}
+
+function mostrarMetodosContacto(event) {
+  
+  const contactoDIV = document.querySelector('#contacto');
+
+  if(event.target.value === 'telefono') {
+    contactoDIV.innerHTML = `
+    
+      <label for="telefono">Numero telefonico: </label>
+      <input type="tel" placeholder="Aqui colocar tu numero de telefono" id="telefono" name="contacto[telefono]">
+    
+      <p>Si eligió teléfono, elegir la fecha y la hora para contactarnos con usted.</p>
+
+      <label for="fecha">Fecha: </label>
+      <input type="date" id="fecha" name="contacto[fecha]">
+
+      <label for="hora">Hora: </label>
+      <input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]">
+    
+    `;
+  } else {
+    contactoDIV.innerHTML = `
+    
+      <label for="email">E-mail: </label>
+      <input type="email" placeholder="Aqui tu correo electronico" id="Email" name="contacto[email]">
+    
+    `;
+  }
+  
 }
