@@ -60,7 +60,6 @@
 
                 <div id="contacto"></div>
 
-
             </fieldset>
 
             <input type="submit" value="Enviar" class="boton-verde-block">
