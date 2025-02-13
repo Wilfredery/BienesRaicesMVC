@@ -2,6 +2,8 @@
 
 namespace MVC;
 
+use Intervention\Gif\Blocks\Header;
+
 class Router {
     public $rutasGET = [];
     public $rutasPOST = [];
@@ -15,6 +17,14 @@ class Router {
     }
 
     public function comprobarRutas() {
+
+        session_start();
+        
+        $auth = $_SESSION['login'] ?? null;
+
+        //Arreglos de rutas protegidas.
+        $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
+
         $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         // if(isset($_SERVER['PATH_INFO'])) {
         //     $urlActual = $_SERVER['PATH_INFO'];
@@ -29,6 +39,12 @@ class Router {
         } else {
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
+
+        //Proteger las rutas
+        if(in_array($urlActual, $rutas_protegidas) && !$auth) {
+            Header('Location: /');
+        }
+
 
         if($fn) {
             
